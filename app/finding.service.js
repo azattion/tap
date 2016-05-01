@@ -23,7 +23,6 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                 Observable_1 = Observable_1_1;
             }],
         execute: function() {
-            //
             //import {Jsonp, URLSearchParams} from 'angular2/http';
             FindingService = (function () {
                 function FindingService(http) {

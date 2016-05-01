@@ -4,7 +4,7 @@ import {Headers, RequestOptions} from 'angular2/http';
 
 import {Finding}        from './finding';
 import {Observable}     from 'rxjs/Observable';
-//
+
 //import {Jsonp, URLSearchParams} from 'angular2/http';
 
 @Injectable()

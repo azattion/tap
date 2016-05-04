@@ -10,7 +10,10 @@ import {Observable}     from 'rxjs/Observable';
 @Injectable()
 export class FindingService {
 
-    constructor (private http: Http) {}
+    constructor(http:Http) {
+        this.finding = http.get('app/finding.json')
+            .map(response => response.json());
+    }
 
     private _Url = 'app/finding.json';
     // URL to web api

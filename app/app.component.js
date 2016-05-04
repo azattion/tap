@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './finding.component', './finding-form.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './finding.component', './finding-one.component', './finding-form.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './finding.component', './f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, finding_component_1, finding_form_component_1;
+    var core_1, router_1, finding_component_1, finding_one_component_1, finding_form_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', 'angular2/router', './finding.component', './f
             },
             function (finding_component_1_1) {
                 finding_component_1 = finding_component_1_1;
+            },
+            function (finding_one_component_1_1) {
+                finding_one_component_1 = finding_one_component_1_1;
             },
             function (finding_form_component_1_1) {
                 finding_form_component_1 = finding_form_component_1_1;
@@ -38,6 +41,7 @@ System.register(['angular2/core', 'angular2/router', './finding.component', './f
                     }),
                     router_1.RouteConfig([
                         { path: '/', name: 'Finding', component: finding_component_1.FindingComponent },
+                        { path: '/:id', name: 'FindingOne', component: finding_one_component_1.FindingOneComponent },
                         { path: '/finding/add', name: 'FindingAdd', component: finding_form_component_1.FindingFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [])

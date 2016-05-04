@@ -49,7 +49,7 @@ export class FindingFormComponent {
 
     constructor (private _findingService: FindingService) {}
 
-    model = new Finding(1, 'Razat ', 'Chuck Overstreet', '+996 700 75 56 35');
+    model = new Finding(1, 'Razat ');
 
     submitted = false;
 

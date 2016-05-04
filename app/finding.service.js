@@ -28,8 +28,9 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
             //import {Jsonp, URLSearchParams} from 'angular2/http';
             FindingService = (function () {
                 function FindingService(http) {
-                    this.http = http;
                     this._Url = 'app/finding.json';
+                    this.finding = http.get('app/finding.json')
+                        .map(function (response) { return response.json(); });
                 }
                 // URL to web api
                 FindingService.prototype.get = function () {

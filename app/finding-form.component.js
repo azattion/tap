@@ -27,7 +27,7 @@ System.register(['angular2/core', './finding', './finding.service'], function(ex
             FindingFormComponent = (function () {
                 function FindingFormComponent(_findingService) {
                     this._findingService = _findingService;
-                    this.model = new finding_1.Finding(1, 'Razat ', 'Chuck Overstreet', '+996 700 75 56 35');
+                    this.model = new finding_1.Finding(1, 'Razat ');
                     this.submitted = false;
                     this.active = true;
                 }

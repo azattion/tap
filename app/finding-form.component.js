@@ -43,11 +43,12 @@ System.register(['angular2/core', './finding', './finding.service'], function(ex
                     enumerable: true,
                     configurable: true
                 });
-                FindingFormComponent.prototype.get = function () {
-                    var _this = this;
-                    this._findingService.get()
-                        .subscribe(function (finding) { return _this.finding = finding; }, function (error) { return _this.errorMessage = error; });
-                };
+                //get() {
+                //    this._findingService.get()
+                //        .subscribe(
+                //            finding => this.finding = finding,
+                //            error =>  this.errorMessage = <any>error);
+                //}
                 FindingFormComponent.prototype.add = function (name) {
                     var _this = this;
                     if (!name) {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {Finding}              from './finding';
 import {FindingService}       from './finding.service';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 
 @Component({
@@ -8,31 +9,33 @@ import {FindingService}       from './finding.service';
     <div class="row">
         <h2 class="col-md-12">Сейчас ищут</h2>
     </div>
-    {{diagnostic}}
     <div class="col-md-4"  *ngFor="#find of finding">
-        <a href="/{{find.id}}" class="thumbnail">
-            <img src="http://static.akipress.org/127/.upload/doska/10/63510.jpg" alt="...">
-        </a>
-        <a href="/{{find.id}}">{{find.title}}</a>
+        <a [routerLink]="['FindingOne', {id: find.id}]" class="thumbnail">
+            <img style="max-width: 100%" src="http://static.akipress.org/127/.upload/doska/10/63510.jpg" alt="...">
+        {{find.title}}</a>
      </div>
      `,
-    providers: [FindingService]
+    providers: [FindingService],
+    directives: [ROUTER_DIRECTIVES]
 })
-export class FindingComponent {
+export class FindingComponent implements OnInit {
 
-    constructor (private _findingService: FindingService) {
-        _findingService.finding
-            .subscribe(
-                finding => this.finding = finding,
-                error => console.error('Error: ' + err),
-                () => console.log('Completed!')
-            );
+    constructor(private _findingService:FindingService) {
     }
 
     //data = this.get();
-    finding: Finding[];
-    errorMessage: string;
+    //finding:Finding[];
+    finding: Finding[] = [];
+    errorMessage:string;
     model = new Finding(1, 'Razat ');
+
+    ngOnInit() {
+        this._findingService.getFindings()
+            .subscribe((finding:Finding[]) => {
+                this.finding = finding;
+            });
+
+    }
 
     //get() {
     //    this._findingService.get()
@@ -42,9 +45,9 @@ export class FindingComponent {
     //    console.log(this.finding);
     //    //return this.data;
     //}
-    get diagnostic() {
-        return JSON.stringify(this.selected);
-    }
+    //get diagnostic() {
+    //    return JSON.stringify(this.selected);
+    //}
 
     //getFinding() {
     //    _findingService.finding.subscribe(

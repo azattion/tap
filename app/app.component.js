@@ -40,8 +40,8 @@ System.register(['angular2/core', 'angular2/router', './finding.component', './f
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', name: 'Finding', component: finding_component_1.FindingComponent },
-                        { path: '/:id', name: 'FindingOne', component: finding_one_component_1.FindingOneComponent },
+                        { path: '/', name: 'Finding', component: finding_component_1.FindingComponent, useAsDefault: true },
+                        { path: '/finding/:id', name: 'FindingOne', component: finding_one_component_1.FindingOneComponent },
                         { path: '/finding/add', name: 'FindingAdd', component: finding_form_component_1.FindingFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [])

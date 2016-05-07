@@ -17,8 +17,8 @@ import {FindingFormComponent} from './finding-form.component';
 })
 
 @RouteConfig([
-    {path:'/', name: 'Finding', component: FindingComponent},
-    {path:'/:id', name: 'FindingOne', component: FindingOneComponent},
+    {path:'/', name: 'Finding', component: FindingComponent, useAsDefault: true},
+    {path:'/finding/:id', name: 'FindingOne', component: FindingOneComponent},
     {path:'/finding/add', name: 'FindingAdd', component: FindingFormComponent}
 ])
 

@@ -1,4 +1,6 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, OnInit} from 'angular2/core';
+import { Router, ROUTER_DIRECTIVES } from 'angular2/router';
+import { RouteParams } from 'angular2/router';
 import {Finding} from './finding';
 import {FindingService}       from './finding.service';
 
@@ -6,11 +8,9 @@ import {FindingService}       from './finding.service';
     template: `
     <div *ngIf="finding" class="col-md-12">
         <h2>{{finding.title}}</h2>
-        <a href="/{{finding.id}}" class="thumbnail">
+        <a href="#" class="thumbnail">
             <img src="http://static.akipress.org/127/.upload/doska/10/63510.jpg" alt="...">
-        </a>
-        <a [class.selected]="finding === selected"
-        (click)="onSelect(find)">{{finding.title}}</a>
+       {{finding.title}}</a>
      </div>
      <div *ngIf="finding">
       <div><label>id: </label>{{finding.id}}</div>
@@ -20,19 +20,21 @@ import {FindingService}       from './finding.service';
       </div>
     </div>
   `,
-    providers: [FindingService]
+    providers: [FindingService],
+    directives: [ ROUTER_DIRECTIVES ]
 })
 
-export class FindingOneComponent {
-    @Input()
+export class FindingOneComponent implements OnInit{
+
     finding: Finding;
 
-    constructor (private _findingService: FindingService) {
-        _findingService.finding
-            .subscribe(
-                finding => this.finding = finding,
-                error => console.error('Error: ' + err),
-                () => console.log('Completed!', this.finding)
-            );
+    constructor(private _routeParams: RouteParams, private findingService: FindingService) { }
+
+    ngOnInit() {
+        let id = +this._routeParams.get('id');
+        this.findingService.getFinding(id)
+            .subscribe((finding: Finding) => this.finding = finding);
+
+        //this.service.getHero(id).then(hero => this.hero = hero);
     }
 }

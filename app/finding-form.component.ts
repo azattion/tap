@@ -66,12 +66,12 @@ export class FindingFormComponent {
         return JSON.stringify(this.model);
     }
 
-    get() {
-        this._findingService.get()
-            .subscribe(
-                finding => this.finding = finding,
-                error =>  this.errorMessage = <any>error);
-    }
+    //get() {
+    //    this._findingService.get()
+    //        .subscribe(
+    //            finding => this.finding = finding,
+    //            error =>  this.errorMessage = <any>error);
+    //}
 
     add(name:string) {
         if (!name) {

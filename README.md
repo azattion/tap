@@ -1,1 +1,1 @@
-<h1>Taptym.kg</h1>
+<h1>Tap</h1>
